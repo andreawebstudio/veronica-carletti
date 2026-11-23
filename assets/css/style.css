@@ -214,7 +214,7 @@ h3 { font-size: clamp(23px, .8vw + 17px, 27px); line-height: 1.25; }
 }
 .wordmark { text-decoration: none; display: flex; flex-direction: column; line-height: 1; flex: none; }
 .wordmark-name { font-family: var(--serif); font-size: clamp(21px, .9vw + 11px, 27px); font-weight: 600; letter-spacing: .005em; white-space: nowrap; }
-.wordmark-title { font-style: italic; font-weight: 500; font-size: .86em; margin-right: .08em; }
+.wordmark-title { font: inherit; }
 .wordmark-role { margin-top: 6px; font-size: clamp(9px, .2vw + 7px, 10.5px); font-weight: 600; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; }
 
 /* Desktop: tutte le voci su una riga + CTA a destra */
@@ -370,7 +370,7 @@ h3 { font-size: clamp(23px, .8vw + 17px, 27px); line-height: 1.25; }
   max-width: calc(1040px + var(--gutter) * 2);
 }
 .about-head { grid-area: head; }
-.about-photo { grid-area: photo; margin: 0; position: relative; justify-self: center; width: 100%; max-width: 300px; }
+.about-photo { grid-area: photo; margin: 0; position: relative; justify-self: center; align-self: start; margin-top: clamp(24px, 4vw, 56px); width: 100%; max-width: 280px; }
 .about-text { grid-area: text; }
 .about-photo::before {
   content: "";
@@ -417,11 +417,11 @@ h3 { font-size: clamp(23px, .8vw + 17px, 27px); line-height: 1.25; }
 .card-target h3 { margin-bottom: 14px; }
 
 /* Servizi: 4 card identiche */
-.services { grid-auto-rows: 1fr; }
+.services { grid-auto-rows: 1fr; max-width: 940px; margin-inline: auto; gap: clamp(20px, 2.2vw, 28px); }
 .card-service { overflow: hidden; display: flex; flex-direction: column; height: 100%; }
-.card-service img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; flex: none; transition: transform .6s var(--ease); }
+.card-service img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; flex: none; transition: transform .6s var(--ease); }
 .card-service:hover img { transform: scale(1.025); }
-.card-body { padding: clamp(26px, 2.6vw, 38px); text-align: center; flex: 1; border-top: 1px solid var(--line); position: relative; background: var(--white); }
+.card-body { padding: clamp(22px, 2vw, 28px) clamp(22px, 2.2vw, 30px); font-size: 16px; line-height: 1.65; text-align: center; flex: 1; border-top: 1px solid var(--line); position: relative; background: var(--white); }
 .card-body h3 { margin-bottom: 14px; }
 .card-body::before {
   content: "";
@@ -680,21 +680,22 @@ html:not(.js) .acc-panel { grid-template-rows: 1fr; }
    CONTATTI — solo il modulo
    ========================================================= */
 .contact-form {
-  max-width: 680px;
+  max-width: 560px;
   margin-inline: auto;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: clamp(24px, 3vw, 40px);
+  padding: clamp(22px, 2.6vw, 32px);
+  font-size: 16px;
   box-shadow: var(--shadow);
 }
 .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
-.field { margin-bottom: 16px; }
+.field { margin-bottom: 14px; }
 .field label { display: block; margin-bottom: 6px; font-size: 14.5px; font-weight: 600; }
 .optional { font-weight: 400; }
 .field input[type="text"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
   width: 100%;
-  min-height: 48px;
+  min-height: 44px;
   padding: 11px 15px;
   font: inherit;
   font-size: 16px; /* evita lo zoom automatico su iOS */
@@ -711,7 +712,7 @@ html:not(.js) .acc-panel { grid-template-rows: 1fr; }
   background-repeat: no-repeat;
   background-position: right 18px center;
 }
-.field textarea { resize: vertical; min-height: 116px; line-height: 1.6; }
+.field textarea { resize: vertical; min-height: 92px; line-height: 1.6; }
 .field input:focus, .field select:focus, .field textarea:focus {
   outline: none;
   border-color: var(--taupe);
@@ -743,7 +744,7 @@ html:not(.js) .acc-panel { grid-template-rows: 1fr; }
 /* =========================================================
    FOOTER
    ========================================================= */
-.site-footer { background: var(--taupe); color: #FBF7F4; padding-top: clamp(56px, 7vw, 80px); }
+.site-footer { background: var(--taupe); color: #FBF7F4; padding-top: clamp(56px, 7vw, 84px); font-size: 15.5px; line-height: 1.6; }
 .site-footer a { color: inherit; text-decoration-color: rgba(216, 183, 168, .8); }
 .footer-inner {
   display: grid;
@@ -752,13 +753,14 @@ html:not(.js) .acc-panel { grid-template-rows: 1fr; }
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, .16);
 }
-.footer-name { font-family: var(--serif); font-size: 32px; font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
-.footer-role { font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 18px; }
-.footer-claim { font-family: var(--serif); font-style: italic; font-size: 21px; line-height: 1.4; color: #F0E4DD; }
-.footer-links ul { display: grid; grid-template-rows: repeat(4, auto); grid-auto-flow: column; justify-content: start; gap: 4px 40px; }
-.footer-links a, .footer-contacts a { display: inline-block; padding: 4px 0; text-decoration: none; }
+.footer-name { font-family: var(--serif); font-size: 30px; font-weight: 600; line-height: 1.15; margin-bottom: 12px; }
+.footer-role { font-size: 11.5px; font-weight: 600; letter-spacing: .2em; line-height: 1.7; text-transform: uppercase; margin-bottom: 22px; }
+.footer-claim { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.5; max-width: 30ch; color: #F0E4DD; }
+.footer-links ul { display: grid; grid-template-rows: repeat(4, auto); grid-auto-flow: column; justify-content: start; gap: 10px 48px; }
+.footer-links a, .footer-contacts a { display: inline-block; padding: 2px 0; text-decoration: none; letter-spacing: .02em; }
+.footer-contacts .fc-label { font-weight: 600; color: #F0E4DD; margin-right: 4px; }
 .footer-links a:hover, .footer-contacts a:hover { text-decoration: underline; }
-.footer-contacts { display: grid; align-content: start; gap: 6px; overflow-wrap: anywhere; }
+.footer-contacts { display: grid; align-content: start; gap: 16px; overflow-wrap: anywhere; }
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -811,7 +813,7 @@ html:not(.js) .acc-panel { grid-template-rows: 1fr; }
     grid-template-areas: "photo" "head" "text";
     text-align: center;
   }
-  .about-photo { max-width: 210px; margin-bottom: 40px; }
+  .about-photo { max-width: 210px; margin-top: 0; margin-bottom: 40px; }
   .about-head { margin-bottom: 32px; }
   .about-text p { margin-inline: auto; }
 
@@ -849,7 +851,7 @@ html:not(.js) .acc-panel { grid-template-rows: 1fr; }
   .journey-num { font-size: 25px; }
   .journey-track { left: 31px; top: 32px; bottom: 32px; }
   .footer-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-  .footer-links ul { justify-content: center; text-align: center; gap: 4px 28px; }
+  .footer-links ul { justify-content: center; text-align: center; gap: 10px 32px; }
   .footer-contacts { justify-items: center; }
   .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
 }
