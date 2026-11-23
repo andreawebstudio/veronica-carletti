@@ -1,0 +1,5 @@
+# Strumenti locali di anteprima
+.claude/
+.vercel/
+.DS_Store
+Thumbs.db

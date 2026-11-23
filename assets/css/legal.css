@@ -1,0 +1,15 @@
+/* Pagine Privacy / Cookie */
+.legal { max-width: calc(780px + var(--gutter) * 2); padding-block: clamp(56px, 7vw, 96px); }
+.legal h1 { font-size: clamp(36px, 3vw + 18px, 56px); margin-bottom: 28px; }
+.legal h2 { font-size: clamp(25px, 1vw + 18px, 32px); margin: 40px 0 12px; }
+.legal .eyebrow { margin-bottom: 12px; }
+.legal-draft {
+  padding: 16px 20px;
+  border: 1px solid var(--sand);
+  border-radius: 14px;
+  background: var(--blush);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.legal-back { min-height: 44px; padding: 10px 20px; font-size: 12px; }
+.legal-footer { padding-top: 0; }
